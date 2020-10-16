@@ -25,8 +25,8 @@ The engine is built on top of SDL library and supports "Entity - Component" arch
         ├── sandbox
         ├── .gitignore
         ├── LICENSE
-        ├── README.md
-        └── min.sln
+        ├── min.sln
+        └── README.md
  
 ## License
 [MIT License](https://github.com/iozsaygi/ripsight/blob/master/LICENSE)

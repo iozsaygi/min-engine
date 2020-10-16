@@ -5,6 +5,7 @@
 #include <vector>
 #include <typeinfo>
 #include <map>
+#include "core/blueprints/components/transform.h"
 #include "component.h"
 
 namespace min
@@ -45,12 +46,14 @@ namespace min
 		std::string &GetName();
 		bool &GetIsActive();
 		void SetIsActive( bool isActive );
+		Transform *GetTransform();
 
 	private:
 		std::string m_Name;
 		bool m_IsActive = true;
 		std::vector<Component *> m_Components;
 		std::map<const std::type_info *, Component *> m_ComponentMap;
+		Transform *m_Transform = nullptr;
 		World *m_OwnerWorld = nullptr;
 	};
 }

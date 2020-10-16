@@ -6,10 +6,13 @@ namespace min
 {
 	Actor::Actor( const std::string &name )
 	{
-		m_Components = std::vector<Component *>();
+		m_Components   = std::vector<Component *>();
 		m_ComponentMap = std::map<const std::type_info *, Component *>();
-		m_Name = name;
-		m_IsActive = true;
+		m_Name         = name;
+		m_IsActive     = true;
+		m_Transform    = new Transform( this, Vector2D::Zero(), Vector2D::One() );
+
+		AddComponent( m_Transform );
 	}
 
 	Actor::~Actor()
@@ -57,5 +60,10 @@ namespace min
 	void Actor::SetIsActive( bool isActive )
 	{
 		m_IsActive = isActive;
+	}
+
+	Transform *Actor::GetTransform()
+	{
+		return m_Transform;
 	}
 }

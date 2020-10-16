@@ -27,6 +27,10 @@ The engine is built on top of SDL library and supports "Entity - Component" arch
         ├── LICENSE
         ├── min.sln
         └── README.md
- 
+        
+## Games made with Min Engine
+* [Underlands - Ludum Dare 47](https://ldjam.com/events/ludum-dare/47/underlands)
+* [Ripsight - Demo Project](https://github.com/iozsaygi/ripsight)
+
 ## License
 [MIT License](https://github.com/iozsaygi/ripsight/blob/master/LICENSE)

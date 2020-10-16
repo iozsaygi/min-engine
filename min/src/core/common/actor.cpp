@@ -52,7 +52,7 @@ namespace min
 		return m_Name;
 	}
 
-	bool &Actor::GetIsActive()
+	bool Actor::GetIsActive()
 	{
 		return m_IsActive;
 	}
@@ -60,6 +60,17 @@ namespace min
 	void Actor::SetIsActive( bool isActive )
 	{
 		m_IsActive = isActive;
+
+		if ( isActive )
+		{
+			for ( Component *component : m_Components )
+				component->OnEnable();
+		}
+		else
+		{
+			for ( Component *component : m_Components )
+				component->OnDisable();
+		}
 	}
 
 	Transform *Actor::GetTransform()

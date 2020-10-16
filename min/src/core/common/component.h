@@ -26,8 +26,17 @@ namespace min
 		// Will be called every frame.
 		inline virtual void OnTick( float deltaTime ) {}
 
-		// Will be called when world gets disabled. (Only once)
+		// Will be called when owner actor gets enabled.
+		inline virtual void OnEnable() {}
+
+		// Will be called when owner actor gets disabled.
+		inline virtual void OnDisable() {}
+
+		// Will be called when the owner world gets disabled.
 		inline virtual void OnShutdown() {}
+
+		// Will be called when owner actor gets destroyed.
+		inline virtual void OnDestroy() {}
 
 		// Gets called when collision happens for the owner of this component.
 		inline virtual void OnCollision( Actor *other ) {}

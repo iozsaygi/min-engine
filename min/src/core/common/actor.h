@@ -44,7 +44,7 @@ namespace min
 		World *GetOwnerWorld();
 		void SetOwnerWorld( World *world );
 		std::string &GetName();
-		bool &GetIsActive();
+		bool GetIsActive();
 		void SetIsActive( bool isActive );
 		Transform *GetTransform();
 

@@ -276,6 +276,9 @@ namespace min
 					m_Texts.erase( textRemoveIt );
 			}
 
+			for ( Component *component : actor->GetComponents() )
+				component->OnDestroy();
+
 			delete actor;
 		}
 

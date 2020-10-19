@@ -1,4 +1,4 @@
-## About
+## Min Engine
 Min Engine is a minimal game engine that i used to create a game during Ludum Dare 47 event. </br>
 The engine is built on top of SDL library and supports "Entity - Component" architecture.
 

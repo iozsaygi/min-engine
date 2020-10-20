@@ -28,6 +28,39 @@ The engine is built on top of SDL library and supports "Entity - Component" arch
         ├── min.sln
         └── README.md
         
+## Examples
+<b>1. Creating a basic actor with basic components such as sprite renderer and box collider</b>
+```cpp
+#include "min_engine.h"
+
+int main( int argc, char *argv[] )
+{
+	// Create the engine entry to initialize dependencies and setup game window.
+	min::EngineEntry *engineEntry = new min::EngineEntry( "Min Engine", 800, 600, 60 );
+	
+	// Create new world (scene) and set is as current active world.
+	min::World *world = new min::World( engineEntry, true );
+	min::WorldManager::SetActiveWorld( world );
+
+	// Create basic player actor and add basic components such as sprite renderer and box collider.
+	min::Actor *player = new min::Actor( "Player" );
+	player->AddComponent<min::SpriteRenderer>( player, engineEntry, "assets/imgs/player.png" );
+	player->AddComponent<min::BoxCollider2D>( player );
+
+	// Add the player to the current active world.
+	world->AddActor( player );
+
+	// Start the tick process of the world.
+	world->Tick();
+
+	// Clean up.
+	delete world;
+	delete engineEntry;
+
+	return 0;
+}
+```
+        
 ## Games made with Min Engine
 * [Underlands - Ludum Dare 47](https://ldjam.com/events/ludum-dare/47/underlands)
 * [Ripsight - Demo project](https://github.com/iozsaygi/ripsight)

@@ -29,7 +29,7 @@ The engine is built on top of SDL library and supports "Entity - Component" arch
         └── README.md
         
 ## Examples
-<b>1. Creating a basic actor with basic components such as sprite renderer and box collider</b>
+<b>1. Creating a basic actor with existing components such as sprite renderer and box collider</b>
 ```cpp
 #include "min_engine.h"
 

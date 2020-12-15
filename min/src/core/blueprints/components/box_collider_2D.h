@@ -28,7 +28,7 @@ namespace min
 		void OnTick( float deltaTime ) override;
 
 		// Do not call this from client code.
-		SDL_Rect GetColliderRectangle();
+		SDL_Rect &GetColliderRectangle();
 
 	private:
 		Transform *m_OwnerTransform = nullptr;

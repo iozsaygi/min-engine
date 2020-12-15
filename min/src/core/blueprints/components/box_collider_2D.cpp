@@ -15,7 +15,7 @@ namespace min
 		m_ColliderRectangle.y = m_OwnerTransform->GetPosition().GetY();
 	}
 
-	SDL_Rect BoxCollider2D::GetColliderRectangle()
+	SDL_Rect &BoxCollider2D::GetColliderRectangle()
 	{
 		return m_ColliderRectangle;
 	}

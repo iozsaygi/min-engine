@@ -60,6 +60,31 @@ int main( int argc, char *argv[] )
 	return 0;
 }
 ```
+<b>2. Creating custom component</b>
+```cpp
+#include "min_engine.h"
+
+class YourComponent : public min::Component
+{
+public:
+	inline YourComponent( min::Actor *owner ) : min::Component( owner ) {}
+	
+	// Gets called before world starts ticking (Only once)
+	void Birth() override;
+	
+	// Gets called after "Birth" function (Only once)
+	void Begin() override;
+	
+	// Gets called every frame by the world
+	void OnTick( float deltaTime ) override;
+	
+	// Gets called when world exits from the "game loop" (Only once)
+	void OnShutdown() override;
+	
+	// Gets called when collision happens between two actors
+	void OnCollision( min::Actor *other ) override;
+}
+```
         
 ## Games made with Min Engine
 * [Underlands - Ludum Dare 47](https://ldjam.com/events/ludum-dare/47/underlands)

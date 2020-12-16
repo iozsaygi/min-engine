@@ -6,7 +6,9 @@ namespace min
 	void BoxCollider2D::Birth()
 	{
 		assert( GetOwner() != nullptr );
-		m_OwnerTransform = GetOwner()->GetComponent<Transform>();
+		m_OwnerTransform		= GetOwner()->GetTransform();
+		m_ColliderRectangle.w	= m_OwnerTransform->GetScale().GetX();
+		m_ColliderRectangle.h	= m_OwnerTransform->GetScale().GetY();
 	}
 
 	void BoxCollider2D::OnTick( float deltaTime )

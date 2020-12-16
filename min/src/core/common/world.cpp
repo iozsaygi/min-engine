@@ -189,19 +189,22 @@ namespace min
 	{
 		for ( int i = 0; i < m_CollidersInWorld.size(); i++ )
 		{
-			if ( i + 1 < m_CollidersInWorld.size() )
+			min::Actor *currentOwner = m_CollidersInWorld[ i ]->GetOwner();
+
+			for ( int j = 1; j < m_CollidersInWorld.size(); j++ )
 			{
-				if ( m_CollidersInWorld[ i ]->GetOwner()->GetIsActive() && m_CollidersInWorld[ i + 1 ]->GetOwner()->GetIsActive() )
+				min::Actor *targetOwner = m_CollidersInWorld[ j ]->GetOwner();
+				if ( currentOwner->GetIsActive() && targetOwner->GetIsActive() )
 				{
-					if ( SDL_HasIntersection( &m_CollidersInWorld[ i ]->GetColliderRectangle(), &m_CollidersInWorld[ i + 1 ]->GetColliderRectangle() ) )
+					if ( SDL_HasIntersection( &m_CollidersInWorld[ i ]->GetColliderRectangle(), &m_CollidersInWorld[ j ]->GetColliderRectangle() ) )
 					{
-						for ( auto component : m_CollidersInWorld[ i ]->GetOwner()->GetComponents() )
+						for ( min::Component *component : m_CollidersInWorld[ i ]->GetOwner()->GetComponents() )
 						{
 							if ( component->GetIsEnabled() )
-								component->OnCollision( m_CollidersInWorld[ i + 1 ]->GetOwner() );
+								component->OnCollision( m_CollidersInWorld[ j ]->GetOwner() );
 						}
 
-						for ( auto component : m_CollidersInWorld[ i + 1 ]->GetOwner()->GetComponents() )
+						for ( min::Component *component : m_CollidersInWorld[ j ]->GetOwner()->GetComponents() )
 						{
 							if ( component->GetIsEnabled() )
 								component->OnCollision( m_CollidersInWorld[ i ]->GetOwner() );

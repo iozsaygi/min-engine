@@ -14,14 +14,7 @@ namespace min
 	public:
 		BoxCollider2D( Actor *owner ) : Component( owner )
 		{
-			m_ColliderRectangle.w = m_OwnerTransform->GetScale().GetX();
-			m_ColliderRectangle.h = m_OwnerTransform->GetScale().GetY();
-		}
 
-		BoxCollider2D( Actor *owner, Vector2D size ) : Component( owner )
-		{
-			m_ColliderRectangle.w = size.GetX();
-			m_ColliderRectangle.h = size.GetY();
 		}
 
 		void Birth() override;

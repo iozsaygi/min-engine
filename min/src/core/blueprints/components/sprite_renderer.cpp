@@ -13,7 +13,7 @@ namespace min
 	void SpriteRenderer::Birth()
 	{
 		assert( GetOwner() != nullptr );
-		m_OwnerTransform = GetOwner()->GetComponent<Transform>();
+		m_OwnerTransform = GetOwner()->GetTransform();
 		m_Renderer = m_EngineEntry->GetRenderer();
 		m_InitialSprite = LoadImage( m_Renderer, m_Path );
 	}
